@@ -13,6 +13,10 @@
 
 ![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/02/active-directory-basic-graphic.gif)
 
+上圖呈現 Active Directory Domain Service 有統一管理 Account 與 Computer
+
+除了圖中的 Account 與 Computer 外，還有更多物件是由 Domain Controller 管理
+
 建立一次登入帳號後，該帳號就可以在所有有加入網域的電腦中進行登入
 
 > 前提是要有可以登入此電腦的權限
@@ -28,4 +32,3 @@
 ## 下一步
 
 接下來會介紹儲存伺服器與使用的傳輸協定 iSCSI
-
