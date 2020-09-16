@@ -5,6 +5,8 @@
 
 ## 掛載實體磁碟
 
+在常見的實體個人電腦中
+
 使用磁碟管理工具將電腦的實體硬碟掛載到作業系統上
 
 ![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/03/graphic-volumn-common.gif)
@@ -35,4 +37,4 @@ iSCSI Server 可在 Linux 系統建立，大部分的 NAS 也有支援此服務
 
 ## 下一步
 
-接下來會對 Windows Server Failover Cluster 的機制做簡短說明
+接下來會對 SQL Server Failover Cluster 的機制做簡短說明
