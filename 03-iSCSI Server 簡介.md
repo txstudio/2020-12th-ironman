@@ -1,7 +1,7 @@
 
 # iSCSI Server 簡介
 
-本次架設 SQL Server Failover Cluster 將使用 iSCSI Server 透過掛載硬碟的方式作為資料庫檔案的磁碟區
+本次架設 SQL Server Failover Cluster 使用 iSCSI Server 掛載硬碟作為資料庫檔案的磁碟區
 
 ## 掛載實體磁碟
 
