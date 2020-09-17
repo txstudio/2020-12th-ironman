@@ -2,13 +2,21 @@
 
 SQL Server Failover Cluster 可保持 SQL Server 持續提供服務不中斷
 
-## 沒有 Failover Cluster
+## 獨立安裝 SQL Server 與 SQL Server Failover Cluster 
+
+當今天 SQL Server 需要進行 Windows Update 更新時
+
+### 獨立安裝 SQL Server
 
 若 SQL Server 資料庫要做軟體更新（Windows Update）重新開機時
 
 在重新開機完畢前資料庫是停止服務的狀態
 
-## 有了 Failover Cluster
+當資料庫停止服務，連線到資料庫的應用程式也要停止服務
+
+### SQL Server Failover Cluster 
+
+在 SQL Server Failover Cluster 架構中，至少由兩個機器建立
 
 當主要節點要做軟體更新（Windows Update）重新開機時
 
@@ -18,13 +26,7 @@ SQL Server Failover Cluster 可保持 SQL Server 持續提供服務不中斷
 
 應用程式統一由叢集IP位址連線至資料庫服務
 
-當然
-
-在節點切換當下還是會有延遲時間
-
-還是建議於離峰時進行
-
-## 圖示說明
+### 圖示說明
 
 今天節點一是主要節點提供服務
 
@@ -41,6 +43,12 @@ SQL Server Failover Cluster 可保持 SQL Server 持續提供服務不中斷
 ![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/04/current-node-2.gif)
 
 > 最上方箭頭代表資料庫連線都是連線至上面的服務名稱與叢集IP位址
+
+當然
+
+在節點切換當下還是會有延遲時間
+
+還是建議於離峰時進行
 
 ## 網路介面卡
 
