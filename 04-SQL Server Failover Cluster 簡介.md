@@ -1,6 +1,8 @@
 # SQL Server Failover Cluster 簡介
 
-SQL Server Failover Cluster 可保持 SQL Server 持續提供服務不中斷
+透過 SQL Server Failover Cluster 可保持 SQL Server 持續提供服務
+
+下面說明 SQL Server Failover Cluster 與獨立安裝的差異
 
 ## 獨立安裝 SQL Server 與 SQL Server Failover Cluster 
 
