@@ -5,10 +5,12 @@
 
 提供 iSCSI 儲存空間給 Failover Cluster 使用
 
-**根據先前規劃 iSCSI 設定如下**
+根據先前規劃 iSCSI 設定如下
+
+**iSCSI target 名稱**
 
 ```
-iSCSI target 名稱 sqlservertarget
+sqlservertarget
 ```
 
 **允許存取 IP 位址**
