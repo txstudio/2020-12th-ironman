@@ -9,11 +9,11 @@
 - TXSTUDIO057DB
 - TXSTUDIO059WG
 
+![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/architechture-add-domain.png)
+
 在加入網域前，要先將網路介面卡的 DNS SERVER 指向網域控制站設定的 DNS 伺服器
 
 > 在目前情境中 DNS Server 與網域控制站是同一台
-
-![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/architechture-add-domain.png)
 
 ## 將 TXSTUDIO056DB 加入網域
 
