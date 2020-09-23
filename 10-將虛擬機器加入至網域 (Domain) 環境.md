@@ -13,7 +13,7 @@
 
 > 在目前情境中 DNS Server 與網域控制站是同一台
 
-![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/architechture-add-domain.gif)
+![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/architechture-add-domain.png)
 
 ## 將 TXSTUDIO056DB 加入網域
 
