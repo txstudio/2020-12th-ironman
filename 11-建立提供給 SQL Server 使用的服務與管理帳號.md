@@ -1,7 +1,7 @@
 
 # 建立 SQL Server Failover Cluster 使用的 Windows 帳號
 
-依照先前規劃，需額外建立的 Windows 帳號與功能如下
+依規劃，需額外建立的 Windows 帳號與其用途如下
 
 |帳號|備註|
 |--|--|
