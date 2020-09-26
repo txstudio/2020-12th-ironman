@@ -25,6 +25,8 @@ enable
 
 掛載好磁碟後還要初始化才可以當一般的磁碟區操作
 
+![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/connect-to-iscsi-target.gif)
+
 ## 將 TXSTUDIO056DB 電腦連線到 iSCSI 伺服器
 
 在 Server Manager 的 Tools 開啟 iSCSI Initiator
