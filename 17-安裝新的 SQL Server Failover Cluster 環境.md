@@ -30,6 +30,7 @@ SQL Server 最高管理者 Windows 登入帳號
 txstudio\sqladmin
 ```
 
+![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/architechture-create-cluster-node.gif)
 
 ## 新的 SQL Server Failover Cluster 安裝
 
