@@ -1,7 +1,7 @@
 
-# 將新的節點加入 SQL Server Failver Cluster
+# 將新的節點加入 SQL Server Failover Cluster
 
-先前步驟已經安裝好 SQL Server Failover Cluster 的
+先前步驟已經建立好一個 SQL Server Failover Cluster
 
 但要達到完整的 Failover 功能，至少還需要第二個節點才可以做轉移
 
@@ -9,7 +9,7 @@
 
 ![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/18/architechture-add-node-to-cluster.gif)
 
-## 將新的節點加入 SQL Server Failver Cluster
+## 將新的節點加入 SQL Server Failover Cluster
 
 進入 TXSTUDIO057DB 伺服器
 
