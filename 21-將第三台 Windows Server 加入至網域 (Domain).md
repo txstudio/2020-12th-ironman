@@ -1,5 +1,5 @@
 
-# 將機器加入網域與 Windows Failover Cluster
+# 將 SQL Server Always On 機器加入網域
 
 接下來要開始準備 SQL Server Always On 的資料庫伺服器
 
