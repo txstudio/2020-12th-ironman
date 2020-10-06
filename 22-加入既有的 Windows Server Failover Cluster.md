@@ -1,5 +1,5 @@
 
-# 將機器 Windows Failover Cluster
+# 將 SQL Server Always On 機器加入至既有 Windows Failover Cluster
 
 加入網域後，接下來要來安裝 Windows Failover Clustering 功能並加入至現有叢集
 
