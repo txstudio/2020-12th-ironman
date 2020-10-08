@@ -24,7 +24,7 @@
 
 ## 開啟 1433 連接埠
 
-![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/25/screenshot-01.png)
+![](https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/25/screenshot-01-a.png)
 
 開啟 Windows Firewall with Advanced Security
 
