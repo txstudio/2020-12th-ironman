@@ -1,0 +1,68 @@
+<h1>啟用所有 SQL Server 資料庫服務的 Always On Availability Group 功能</h1>
+<p>預設情況下 SQL Server Always On Availability Group 功能是被關閉的，需從組態管理員開啟</p>
+<p>在 SQL Server Failover Cluster 會驗證節點轉移後此功能是否有正確被開啟</p>
+<h2>開啟 SQL Server Failover Cluster 的 AlwaysOn High Availability 功能</h2>
+<p>前往 TXSTUDIO058DB 伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-01.png" alt="" /></p>
+<p>在功能選單開啟 SQL Server 2017 Configuration Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-02.png" alt="" /></p>
+<p>選擇 SQL Server Service 並在 SQL Server (MSSQLSERVER) 點選右鍵開啟 Proerties 視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-03.png" alt="" /></p>
+<p>切換至 AlwaysOn High Availability 功能並勾選 Enable AlwaysOn Availability Group 並選擇 Apply</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-04.png" alt="" /></p>
+<p>會提示要重新啟動服務才會生效</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-05.png" alt="" /></p>
+<p>在 SQL Server (MSSQLSERVER) 點選右鍵點選 Restart</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-06.png" alt="" /></p>
+<p>等待 SQL Server 服務重新開啟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-07.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-08.png" alt="" /></p>
+<p>SQL Server 服務重新啟動後，Always On 功能就會被啟用</p>
+<h2>驗證叢集節點變更後功能是否還是啟用狀態</h2>
+<p>重新開啟目前服務中的 SQL Server Failover Cluster 伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-09.png" alt="" /></p>
+<p>將 TXSTUDIO057DB 重新開機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-10.png" alt="" /></p>
+<p>進入 TXSTUDIO056DB 的 SQL Server Configuration Manager</p>
+<blockquote>
+<p>因為目前提供服務的節點是 TXSTUDIO057DB 故一開始 SQL Server 相關服務是停用的</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-11.png" alt="" /></p>
+<p>SQL Server 服務因為節點轉換被開啟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-12.png" alt="" /></p>
+<p>點選 SQL Server (MSSQLSERVER) 右鍵開啟 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-13.png" alt="" /></p>
+<p>AlwaysOn High Availability 的 Enable AlwaysOn High Availability Groups 功能有被啟用</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-14.png" alt="" /></p>
+<p>當 SQL Server Failover Cluster 做節點轉換時，Always On 還是可以持續作用</p>
+<h2>開啟獨立 SQL Server 資料庫服務的 Always On High Availability 功能</h2>
+<p>前往 TXSTUDIO058DB 伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-15.png" alt="" /></p>
+<p>在功能選單開啟 SQL Server 2017 Configuration Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-16.png" alt="" /></p>
+<p>選擇 SQL Server Service 並在 SQL Server (SQLSERVERBK) 點選右鍵開啟 Proerties 視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-17.png" alt="" /></p>
+<p>切換至 AlwaysOn High Availability 功能</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-18.png" alt="" /></p>
+<p>勾選 Enable AlwaysOn Availability Group 並選擇 Apply</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-19.png" alt="" /></p>
+<p>會提示需要重新啟動 SQL Server 異動才會生效</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-20.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-21.png" alt="" /></p>
+<p>點選 SQL Server (SQLSERVERBK) 點選 Restart 重新啟動 SQL Server 服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-22.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-23.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-24.png" alt="" /></p>
+<p>SQL Server (SQLSERVERBK) 重新啟動後 AlwaysOn High Availability 功能就會生效</p>
+<h2>開啟 SQL Server Agent 功能</h2>
+<p>選擇 SQL Server Agent 服務點選右鍵選擇 Start 開啟服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-25.png" alt="" /></p>
+<p>再選擇 Proerties 開啟屬性視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-26.png" alt="" /></p>
+<p>選擇 Service 頁簽在 Start Mode 選擇 Automatic</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-27.png" alt="" /></p>
+<p>點選 OK 關閉設定</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/24/screenshot-28.png" alt="" /></p>
+<h2>下一步</h2>
+<p>啟用所有 SQL Server 服務的 Always On Availability Group 後，還要允許指定連接埠的防火牆存取</p>
+<p>接下來要來設定所有 SQL Server 電腦的防火牆</p>

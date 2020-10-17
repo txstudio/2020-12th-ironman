@@ -1,0 +1,31 @@
+<h1>安裝網域服務 (Active Directory Domain Service)</h1>
+<p>項目都規劃完成後</p>
+<p>首先要準備 Active Directory 網域控制站 (Domain Controller) 讓其他電腦加入網域服務</p>
+<p>根據先前規劃</p>
+<p>安裝的電腦名稱為 TXSTUDIO050DC (192.168.0.50)</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/architechture-domain-service.gif" alt="" /></p>
+<h2>安裝網域服務 (Active Directory Domain Service)</h2>
+<p>前往 TXSTUDIO050DC 電腦</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-01.png" alt="" /></p>
+<p>在 Server Manager 的 Manage 點選 Add Roles and Features</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-02.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-03.png" alt="" /></p>
+<p>選擇 Role-based or feature-based installation</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-04.png" alt="" /></p>
+<p>預設是將功能安裝在本機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-05.png" alt="" /></p>
+<p>Server Roles 勾選 Active Directory Domain Service</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-06.png" alt="" /></p>
+<p>點選 Add Features 安裝必要服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-07.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-08.png" alt="" /></p>
+<p>Features 不需要勾選任何項目</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-09.png" alt="" /></p>
+<p>點選 Install 開始安裝</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-10.png" alt="" /></p>
+<p>安裝完成，並提示此項目需要進行設定</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/06/screenshot-11.png" alt="" /></p>
+<h2>下一步</h2>
+<p>角色安裝完成後，就來將此電腦升級成為網域控制站</p>

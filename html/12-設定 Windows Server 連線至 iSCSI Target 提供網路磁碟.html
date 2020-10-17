@@ -1,0 +1,110 @@
+<h1>設定 Windows Server 連線至 iSCSI Target 提供的網路磁碟</h1>
+<p>要安裝 SQL Server Failover Cluster 的電腦要連線到相同的 iSCSI 網路磁碟</p>
+<p>當節點轉移時就網路磁碟會自動掛載到另外一台提供服務的節點</p>
+<p>依規劃要掛載的電腦為</p>
+<ul>
+<li>TXSTUDIO056DB</li>
+<li>TXSTUDIO057DB</li>
+</ul>
+<p>iSCSI Target 資訊</p>
+<pre><code>Server IP Address
+192.168.0.51
+
+iSCSI Target Name
+sqlservertarget
+
+CHAP
+enable
+</code></pre>
+<p>掛載好磁碟後還要初始化才可以當一般的磁碟區操作</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/connect-to-iscsi-target.gif" alt="" /></p>
+<h2>將 TXSTUDIO056DB 電腦連線到 iSCSI 伺服器</h2>
+<p>在 Server Manager 的 Tools 開啟 iSCSI Initiator</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-01.png" alt="" /></p>
+<p>點選 Yes 開啟 Microsoft iSCSI 服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-02.png" alt="" /></p>
+<p>在 iSCSI Initiator Properties 屬性的 Target 輸入 iSCSI 伺服器名稱 192.168.0.51 點選 Quick Connect...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-03.png" alt="" /></p>
+<p>點選 Done 連線至 iSCSI Target</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-04.png" alt="" /></p>
+<p>點選 Connect</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-05.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-06.png" alt="" /></p>
+<p>在 Connect to Target 視窗點選 Advanced...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-07.png" alt="" /></p>
+<p>在 Advanced Settings 勾選 Enable CHAP log on 輸入 Name 與 Target secret</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-08.png" alt="" /></p>
+<p>點選 OK 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-09.png" alt="" /></p>
+<p>點選 OK 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-10.png" alt="" /></p>
+<p>點選 OK 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-11.png" alt="" /></p>
+<h2>初始化 iSCSI 磁碟區</h2>
+<p>回到 Server Manager 在 Tools 開啟 Computer Management</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-12.png" alt="" /></p>
+<p>在 Storage &gt; Disk Management 就可以看到掛載上去的硬碟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-13.png" alt="" /></p>
+<p>選擇 Disk 1 點選右鍵點選 Online</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-14.png" alt="" /></p>
+<p>選擇 Disk 2 點選右鍵點選 Online</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-15.png" alt="" /></p>
+<p>回到 Disk 1 點選右鍵點選 Initialize Disk</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-16.png" alt="" /></p>
+<p>使用預設點選 OK</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-17.png" alt="" /></p>
+<p>在 Disk 1 右鍵點選 New Simple Volume...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-18.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-19.png" alt="" /></p>
+<p>預設會使用所有空間</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-20.png" alt="" /></p>
+<p>磁碟槽選擇 F</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-21.png" alt="" /></p>
+<p>輸入 Volume label 名稱</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-22.png" alt="" /></p>
+<p>點選 Finish 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-23.png" alt="" /></p>
+<p>在 Disk 2 右鍵點選 New Simple Volume...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-24.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-25.png" alt="" /></p>
+<p>預設會使用所有空間</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-26.png" alt="" /></p>
+<p>磁碟槽選擇 Q</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-27.png" alt="" /></p>
+<p>輸入 Volume label 名稱</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-28.png" alt="" /></p>
+<p>點選 Finish 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-29.png" alt="" /></p>
+<p>F 與 Q 磁碟槽初始化完成</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-30.png" alt="" /></p>
+<h2>將 TXSTUDIO057DB 電腦連線到 iSCSI 伺服器</h2>
+<p>因為 TXSTUDIO056DB 已經掛載好 iSCSI 磁碟區，此動作完成後磁碟區會處於 Offline 狀態並不需要再做初始化</p>
+<p>在 Server Manager 的 Tools 開啟 iSCSI Initiator</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-31.png" alt="" /></p>
+<p>點選 Yes 開啟 Microsoft iSCSI 服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-32.png" alt="" /></p>
+<p>在 iSCSI Initiator Properties 屬性的 Target 輸入 iSCSI 伺服器名稱 192.168.0.51 點選 Quick Connect...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-33.png" alt="" /></p>
+<p>點選 Done 連線至 iSCSI Target</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-34.png" alt="" /></p>
+<p>點選 Connect</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-35.png" alt="" /></p>
+<p>在 Connect to Target 視窗點選 Advanced...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-36.png" alt="" /></p>
+<p>在 Advanced Settings 勾選 Enable CHAP log on 輸入 Name 與 Target secret</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-37.png" alt="" /></p>
+<p>點選 OK 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-38.png" alt="" /></p>
+<p>點選 OK 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-39.png" alt="" /></p>
+<p>回到 Server Manager 在 Tools 開啟 Computer Management</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-40.png" alt="" /></p>
+<p>在 Storage &gt; Disk Management 就可以看到掛載上去的硬碟並處於 Offline 狀態</p>
+<blockquote>
+<p>因為掛載於 TXSTUDIO056DB 電腦</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/12/screenshot-41.png" alt="" /></p>
+<h2>下一步</h2>
+<p>iSCSI 硬碟掛載完成後，接下來就要設定 Windows Failover Cluster 容錯轉移叢集</p>

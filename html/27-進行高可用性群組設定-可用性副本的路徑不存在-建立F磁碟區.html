@@ -1,0 +1,37 @@
+<h1>番外篇：在可用性複本伺服器建立 F 磁碟區</h1>
+<p>根據預設 AdventureWorks2017 資料庫備份會還原在一開始資料庫的位置</p>
+<p>也就是 SQL Server Failover Cluster 的 F 磁碟區</p>
+<p>若設定 Always On 機器並沒有 F 磁碟區的話</p>
+<p>進行完整備份還原時就會出現下面錯誤訊息</p>
+<h2>建立 SQL Server Always On Availability Group 失敗</h2>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-01.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-02.png" alt="" /></p>
+<h2>加入 F 磁碟區</h2>
+<p>已先行將 Hyper-V 硬碟 (VHDX) 掛載到虛擬機器中</p>
+<p>前往已安裝獨立 SQL Server 資料庫的機器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-03.png" alt="" /></p>
+<p>在「Computer Management」開啟「Disk Management」將「Disk 1」點選「Online」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-04.png" alt="" /></p>
+<p>點選「Initialize Disk」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-05.png" alt="" /></p>
+<p>依照預設選擇「OK」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-06.png" alt="" /></p>
+<p>選擇「Disk 1」使用滑鼠右鍵選擇「New Simple Volume...」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-07.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-08.png" alt="" /></p>
+<p>預設會使用所有空間點選</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-09.png" alt="" /></p>
+<p>指定磁碟區為 F</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-10.png" alt="" /></p>
+<p>設定磁碟區的名稱</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-11.png" alt="" /></p>
+<p>點選「Finish」完成設定</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-12.png" alt="" /></p>
+<p>在「This PC」與「Disk Management」就可以看到空間已掛載上去</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-13.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/27/screenshot-14.png" alt="" /></p>
+<p>別忘記預先建立資料夾路徑</p>
+<pre><code>F:\MSSQL14.MSSQLSERVER\MSSQL\DATA
+</code></pre>
+<h2>下一步</h2>
+<p>設定好磁碟區與 SQL Server Failover Cluster 相同後，就可以開始進行 SQL Server Always On Availability Group 設定</p>

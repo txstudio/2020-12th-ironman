@@ -1,0 +1,61 @@
+<h1>在 SQL Server Failover Cluster 還原 AdventureWorks2017 範例資料庫</h1>
+<p>SQL Server Always On 是指定資料庫做設定</p>
+<p>先在架設好的 SQL Server Failover Cluster 還原 AdventureWorks2017 範例資料庫</p>
+<p>在用此資料庫作為 Always On 的可用性群組資料庫</p>
+<h2>準備 AdventureWorks2017 備份資料檔案</h2>
+<p>請先到微軟網站下載 AdventureWorks2017 範例資料庫的備份檔案</p>
+<p>https://docs.microsoft.com/zh-tw/sql/samples/adventureworks-install-configure?view=sql-server-ver15&amp;tabs=ssms</p>
+<blockquote>
+<p>這裡使用的是 AdventureWorks2017.bak</p>
+</blockquote>
+<p>在 Failover Cluster Manager 確認提供服務主機為 TXSTUDIO057DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-01-a.png" alt="" /></p>
+<p>將 AdventureWorks2017 的備份資料庫檔案放在 F 磁碟槽</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-02.png" alt="" /></p>
+<h2>進行資料庫還原</h2>
+<p>將備份檔放到資料庫伺服器的指定位置後</p>
+<p>使用 Microsoft SQL Server Management Studio 進行資料庫還原作業</p>
+<p>使用資料庫管理員帳號帳號登入 TXSTUDIO059WG</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-03.png" alt="" /></p>
+<p>開啟 Microsoft SQL Server Management Studio</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-04.png" alt="" /></p>
+<p>在「連線」選擇「資料庫引擎」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-05.png" alt="" /></p>
+<p>連線到叢集資料庫伺服器 SQL2017SSFC</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-06.png" alt="" /></p>
+<p>點選「資料庫」右鍵「還原資料庫」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-07.png" alt="" /></p>
+<p>在裝置點選「...」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-08.png" alt="" /></p>
+<p>點選「加入」選擇資料庫備份檔案位置</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-09.png" alt="" /></p>
+<p>選擇輸入 F: 槽位置並選擇檔案 AdventureWorks2017.bak</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-10.png" alt="" /></p>
+<p>點選「確定」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-11.png" alt="" /></p>
+<p>點選「確定」就會開始還原資料庫</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-12.png" alt="" /></p>
+<p>AdventureWorks2017 資料庫還原成功</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-13.png" alt="" /></p>
+<h2>驗證 AdventureWorks2017 資料庫</h2>
+<p>在物件總管可以看到 AdventureWorks2017 資料庫</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-14.png" alt="" /></p>
+<p>點選「資料表」可以看到 AdventureWorks2017 的資料表清單</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-15.png" alt="" /></p>
+<p>點選「新增查詢」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-16.png" alt="" /></p>
+<p>查詢目前資料庫的 index 清單</p>
+<pre><code>SELECT * FROM sys.indexes
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-17.png" alt="" /></p>
+<p>查詢目前資料庫的 table 清單</p>
+<pre><code>SELECT * FROM sys.tables
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/20/screenshot-18.png" alt="" /></p>
+<h2>下一步</h2>
+<p>還原好資料庫後，接下來將要設定 SQL Server Always On 的機器</p>
+<ul>
+<li>加入網域環境</li>
+<li>設定與加入 Windows Failover Cluster</li>
+</ul>
+<p>再來安裝 SQL Server 資料庫</p>

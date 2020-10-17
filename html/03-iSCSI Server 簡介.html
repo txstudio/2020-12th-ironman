@@ -1,0 +1,22 @@
+<h1>iSCSI Server 簡介</h1>
+<p>本次架設 SQL Server Failover Cluster 使用 iSCSI Server 掛載硬碟作為資料庫檔案的磁碟區</p>
+<h2>掛載實體磁碟</h2>
+<p>在常見的實體個人電腦中</p>
+<p>使用磁碟管理工具將電腦的實體硬碟掛載到作業系統上</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/03/graphic-volumn-common.gif" alt="" /></p>
+<blockquote>
+<p>實體硬碟透過傳輸介面與電腦的主機板做連結</p>
+</blockquote>
+<h2>使用 iSCSI 掛載磁碟</h2>
+<p>iSCSI 可提供空間給 Windows Server 掛載成磁碟區</p>
+<p>透過網路將資料寫至指定的檔案伺服器中</p>
+<p>類似加上一顆硬碟到電腦中使用磁碟管理來操作</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/03/graphic-volumn-with-iscsi-server.gif" alt="" /></p>
+<p>在 Failover Cluster 架構下</p>
+<p>兩台以上節點伺服器皆會掛載相同的 iSCSI 空間</p>
+<p>並在主要節點停止服務時，次要節點會自動掛載 iSCSI 硬碟</p>
+<p>持續提供儲存服務</p>
+<p>iSCSI Server 可在 Linux 系統建立，大部分的 NAS 也有支援此服務</p>
+<p>本次範例環境使用 Windows Server 建立 iSCSI Server 提供服務</p>
+<h2>下一步</h2>
+<p>接下來會對 SQL Server Failover Cluster 的機制做簡短說明</p>

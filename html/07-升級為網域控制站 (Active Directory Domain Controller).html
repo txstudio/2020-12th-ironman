@@ -1,0 +1,33 @@
+<h1>升級為網域控制站 (Active Directory Domain Controller)</h1>
+<p>安裝好網域服務角色後</p>
+<p>還要經過設定才會變成網域控制站 (Active Directory Domain Controller) 提供網域服務 (Active Directory Domain Service)</p>
+<p>根據先前規劃升級網域控制站的必要設定如下</p>
+<ul>
+<li>網域名稱為 txstudio.com</li>
+</ul>
+<h2>將電腦升級為網域控制站</h2>
+<p>點選 Server Manager 的黃色驚嘆號點選 Promote this server to a domain controller</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-01.png" alt="" /></p>
+<p>選擇 Add a new forest 並輸入 Root domain name</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-02.png" alt="" /></p>
+<p>Level 依照預設設定為 Windows Server 2016 並輸入還原密碼</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-03.png" alt="" /></p>
+<p>因為沒有既有 DNS 伺服器所以會加入 DNS 功能，點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-04.png" alt="" /></p>
+<p>確認 NetBIOS 名稱</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-05.png" alt="" /></p>
+<p>LOG 紀錄使用預設</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-06.png" alt="" /></p>
+<p>點選 Next 準備開始安裝</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-07.png" alt="" /></p>
+<p>點選 Install 開始升級成網域控制站</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-08.png" alt="" /></p>
+<p>設定完成後會自動重新開機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-09.png" alt="" /></p>
+<p>重新開機後機器就會成為網域控制站 (Domain Controller)</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/07/screenshot-10.png" alt="" /></p>
+<p>重新啟動後</p>
+<p>登入帳號輸入 txstudio\administrator 就是使用網域帳戶登入</p>
+<p>輸入 TXSTUDIO050DC\administrator 就是使用本機帳戶登入</p>
+<h2>下一步</h2>
+<p>網域控制站設定完成後，接下來要來設定 iSCSI Server</p>

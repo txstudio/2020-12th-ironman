@@ -1,0 +1,64 @@
+<h1>驗證 SQL Server Failover Cluster 功能</h1>
+<p>安裝並設定好 SQL Server Failover Cluster 後</p>
+<p>接下來要透過重新啟動節點伺服器的方式來驗證 SQL Server Failover Cluster 是否建置成功</p>
+<blockquote>
+<p>如同 Windows Failover Cluster 的模擬方式</p>
+</blockquote>
+<p>這次將使用 SQL Server Management Studio 來確認 SQL Server Failover Cluster 服務的節點狀態</p>
+<h2>使用工作電腦進行操作</h2>
+<p>使用資料庫管理員帳號 txstudio\sqladmin</p>
+<p>連線至 Windows 10 作業系統電腦 TXSTUDIO059WG</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-01.png" alt="" /></p>
+<p>開啟 Microsoft SQL Server Management Studio</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-02.png" alt="" /></p>
+<p>使用 Windows 登入連線至伺服器 SQL2017SSFC</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-03.png" alt="" /></p>
+<p>使用下列查詢確認伺服器名稱</p>
+<pre><code>SELECT @@SERVERNAME
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-04.png" alt="" /></p>
+<p>預先建立一個資料庫與資料表內容</p>
+<pre><code>CREATE DATABASE [ClusterDatabase]
+GO
+
+USE [ClusterDatabase]
+GO
+
+CREATE TABLE [dbo].[Table]
+(
+	[Id]	INT IDENTITY(1,1),
+	[Name]	NVARCHAR(50),
+	
+	CONSTRAINT [PK_Table]
+		PRIMARY KEY CLUSTERED([Id])
+)
+GO
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-05.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-06.png" alt="" /></p>
+<p>執行並建立資料庫與資料表物件</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-07.png" alt="" /></p>
+<p>使用 sys.dm_os_cluster_nodes 確認集節點狀態</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-08.png" alt="" /></p>
+<p>接下來重新啟動 TXSTUDIO056DB 伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-09.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-10.png" alt="" /></p>
+<p>持續查詢 sys.dm_os_cluster_nodes 物件</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-11.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-12.png" alt="" /></p>
+<p>可以看到 TXSTUDIO057DB 是正在提供服務的節點，TXSTUDIO056DB 處於關閉狀態</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-13.png" alt="" /></p>
+<p>目前 TXSTUDIO056DB 正在重新啟動中</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-14.png" alt="" /></p>
+<p>TXSTUDIO056DB 尚未開啟完成</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-15.png" alt="" /></p>
+<p>TXSTUDIO056DB 正在加入叢集</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-16.png" alt="" /></p>
+<p>TXSTUDIO056DB 開啟完成並重新加入叢集並處於備援狀態</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/19/screenshot-17.png" alt="" /></p>
+<p>從上述步驟可以看到在主要節點停止服務的時候</p>
+<p>節點間轉移的狀態</p>
+<p>可以發現在資料庫轉移時服務還是會有受到些許影響</p>
+<h2>下一步</h2>
+<p>SQL Server Failover Cluster 安裝就到此結束</p>
+<p>接下來就要進行 SQL Server Always On 的環境與指定資料庫做 Always On 設定</p>

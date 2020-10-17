@@ -1,0 +1,66 @@
+<h1>設定 Windows Failover Cluster</h1>
+<p>接下來將使用 Failover Cluster Manager 將 TXSTUDIO056DB 與 TXSTUDIO057DB 電腦設定為 Windows Failover Cluster</p>
+<p>根據先前規劃設定如下</p>
+<pre><code>Cluster Name
+TXSTUDIO053SRV
+
+IP Address
+192.168.0.53
+</code></pre>
+<p>設定為 Windows Failover Cluster 電腦</p>
+<pre><code>TXSTUDIO056DB
+TXSTUDIO057DB
+</code></pre>
+<h2>驗證 Failover Cluster 設定</h2>
+<p>在 Server Manager 的 Tools 開啟 Failover Cluster Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-01.png" alt="" /></p>
+<p>在 Failover Cluster Manager 點選 Validate Configuration...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-02.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-03.png" alt="" /></p>
+<p>輸入要建立 Failover Cluster 的主機名稱 TXSTUDIO056DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-04.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-05.png" alt="" /></p>
+<p>輸入主機名稱 TXSTUDIO057DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-06.png" alt="" /></p>
+<p>勾選 Run all tests (recommanded)</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-07.png" alt="" /></p>
+<p>確認要測試的主機清單</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-08.png" alt="" /></p>
+<p>就會開始進行 Failover Cluster 的驗證</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-09.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-10.png" alt="" /></p>
+<p>勾選 Create the cluster now using the validated nodes... 並點選 Finish 開啟 Create Cluster Wizard</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-11.png" alt="" /></p>
+<h2>建立 Failover Cluster</h2>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-12.png" alt="" /></p>
+<p>輸入 Cluster 名稱，並指定 IP 位址</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-13.png" alt="" /></p>
+<p>確認要建立的伺服器清單後點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-14.png" alt="" /></p>
+<p>就會開始 Failover Cluster 建立作業</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-15.png" alt="" /></p>
+<p>建立完成點選 Finish 關閉</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-16.png" alt="" /></p>
+<h2>檢視設定完成的 Windows Failover Cluster</h2>
+<p>使用 Failover Cluster Manager 就可以檢視目前 Failover Cluster 狀態</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-17.png" alt="" /></p>
+<p>點選 Nodes 檢視節點伺服器清單</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-18.png" alt="" /></p>
+<p>Networks 顯示目前使用的網路介面卡，一個是 HeartBeat 使用</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-19.png" alt="" /></p>
+<p>Disks 為掛載的磁碟資訊</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-20.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-21.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-22.png" alt="" /></p>
+<p>TXSTUDIO056DB 沒有掛載 iSCSI 磁碟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-23.png" alt="" /></p>
+<p>TXSTUDIO057DB 的 iSCSI 磁碟已經掛載上去</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-24.png" alt="" /></p>
+<p>開啟 Failover Cluster Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-25.png" alt="" /></p>
+<p>可以看到目前者主要結點為 TXSTUDIO057DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/14/screenshot-26.png" alt="" /></p>
+<h2>下一步</h2>
+<p>設定完成後，就要來驗證結果是否正確</p>

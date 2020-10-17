@@ -1,0 +1,38 @@
+<h1>將 SQL Server Always On 機器加入網域</h1>
+<p>接下來要開始準備 SQL Server Always On 的資料庫伺服器</p>
+<p>首先要先將伺服器加入 Active Directory 網域環境才可以進行加入 Failover Cluster 作業</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/architechture-add-domain-and-failover-clustering.gif" alt="" /></p>
+<h2>加入現有的 Active Directory 網域</h2>
+<p>進入 TXSTUDIO058DB 的 Server Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-01.png" alt="" /></p>
+<p>點選 WORKGROUP</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-02.png" alt="" /></p>
+<p>在 System Properites 點選 Change</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-03.png" alt="" /></p>
+<p>在 Domain 輸入網域名稱 txstudio.com</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-04.png" alt="" /></p>
+<p>輸入擁有加入網域權限的帳號密碼</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-05.png" alt="" /></p>
+<p>加入網域成功</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-06.png" alt="" /></p>
+<p>點選 Close 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-07.png" alt="" /></p>
+<p>點選 Restart Now 重新啟動伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-08.png" alt="" /></p>
+<p>重新啟動完成後就會在網域環境中</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-09.png" alt="" /></p>
+<h2>驗證加入網域結果</h2>
+<p>重新開啟完成後就可以使用 txstudio\administrator 登入</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-10.png" alt="" /></p>
+<p>在 Server Manager 可以看到已經加入網域</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-11.png" alt="" /></p>
+<p>接下來進入網域控制站確認</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-12.png" alt="" /></p>
+<p>開啟 Computers</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-13.png" alt="" /></p>
+<p>右鍵點選 Refresh</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-14.png" alt="" /></p>
+<p>可以看到 Computers 有 TXSTUDIO058DB 的電腦</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/21/screenshot-15.png" alt="" /></p>
+<h2>下一步</h2>
+<p>加入網域後，還要將電腦加入到先前已設定好的 Windows Failover Cluster</p>

@@ -1,0 +1,30 @@
+<h1>驗證 Windows Failover Cluster</h1>
+<p>設定好 Windows Failover Cluster 後</p>
+<p>透過重新啟動的方式模擬節點機器進行 Windows Update 更新時</p>
+<p>主要節點的轉換與 iSCSI 的掛載狀態</p>
+<h2>確認目前 Failover Cluster 主要節點</h2>
+<p>進入 TXSTUDIO057DB 的 Server Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-01.png" alt="" /></p>
+<p>目前 File (F:) 與 Quorum (Q:) 磁碟槽皆掛載在此機器上</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-02.png" alt="" /></p>
+<p>然後從 TXSTUDIO056DB 的 This PC 可以看到只有系統磁碟與光碟機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-03.png" alt="" /></p>
+<p>在 TXSTUDIO056DB 開啟 Failover Cluster Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-04.png" alt="" /></p>
+<p>目前的 Current Host Server 是 TXSTUDIO057DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-05.png" alt="" /></p>
+<h2>透過重新啟動確認 Failover Cluster 狀態</h2>
+<p>接下來重新啟動 TXSTUDIO057DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-06.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-07.png" alt="" /></p>
+<p>連線到 TXSTUDIO056DB 並進入 Failover Cluster Manager 與 This PC 確認狀態</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-08.png" alt="" /></p>
+<p>Failover Cluster Manager 的 Current Host Server 已經變更為 TXSTUDIO056DB</p>
+<p>Quorum (Q:) 磁碟槽已掛載到 TXSTUDIO056DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-09.png" alt="" /></p>
+<p>File (F:) 磁碟槽也已掛載到 TXSTUDIO056DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/16/screenshot-10.png" alt="" /></p>
+<p>透過上述步驟模擬主要節點機器進行 Windows Update 重新啟動後 Failover Cluster 節點間的轉換過程</p>
+<h2>下一步</h2>
+<p>Windows Failover Cluster 驗證完成後</p>
+<p>就可以來安裝 SQL Server Failover Cluster</p>

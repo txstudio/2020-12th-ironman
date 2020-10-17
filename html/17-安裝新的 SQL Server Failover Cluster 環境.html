@@ -1,0 +1,76 @@
+<h1>安裝 SQL Server Failover Cluster 環境</h1>
+<p>設定好 Windows Failover Cluster 後</p>
+<p>就要來安裝 SQL Server Failover Cluster</p>
+<p>依先前規畫</p>
+<pre><code>SQL Server Network Name
+SQL2017SSFC
+
+IP Address
+192.168.0.55
+</code></pre>
+<p>服務執行帳號</p>
+<pre><code>SQL Server Agent
+txstudio\sqlsvc
+
+SQL Server Database Engine
+txstudio\sqlsvc
+</code></pre>
+<p>SQL Server 最高管理者 Windows 登入帳號</p>
+<pre><code>txstudio\sqladmin
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/architechture-create-cluster-node.gif" alt="" /></p>
+<h2>新的 SQL Server Failover Cluster 安裝</h2>
+<p>連線到主要 Cluster 節點 TXSTUDIO056DB 並點選進入 SQL Server 安裝光碟路徑</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-01-a.png" alt="" /></p>
+<p>點選 setup 開啟安裝精靈</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-02.png" alt="" /></p>
+<p>點選 Installation</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-03.png" alt="" /></p>
+<p>點選 New SQL Server failover cluster installation</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-04.png" alt="" /></p>
+<p>選擇 Developer 版本</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-05.png" alt="" /></p>
+<p>勾選 I accept the license terms.</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-06.png" alt="" /></p>
+<p>忽略 Microsoft Update</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-07.png" alt="" /></p>
+<p>驗證 Failover Cluster</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-08.png" alt="" /></p>
+<p>勾選需要安裝的服務 Database Engine Services</p>
+<ul>
+<li>SQL Server Replication</li>
+<li>Full-Text and Semantic Extractions for S ...</li>
+<li>Data Quality Services</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-09.png" alt="" /></p>
+<p>輸入 SQL Server Network 名稱 SQL2017SSFC</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-10.png" alt="" /></p>
+<p>勾選檔案磁碟 FileDisk</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-11.png" alt="" /></p>
+<p>輸入 SQL Server Failover Cluster 的 IP 位址資訊</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-12.png" alt="" /></p>
+<p>輸入 SQL Server Database Engine 與 SQL Server Agent 服務執行的 Windows 帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-13.png" alt="" /></p>
+<p>檔案路徑依預設</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-14.png" alt="" /></p>
+<p>TempDB 會依照處理器核心數初始化預設數量</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-15.png" alt="" /></p>
+<p>在 Server Configuration 勾選 Mixed Mode 並輸入登入密碼</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-16.png" alt="" /></p>
+<p>點選 Add 加入指定的 Windows 登入帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-17.png" alt="" /></p>
+<p>輸入 txstudio\sqladmin 並點選 Check Names</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-18.png" alt="" /></p>
+<p>點選 Ok 將帳號設定成 SQL Server 管理員帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-19.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-20.png" alt="" /></p>
+<p>點選 Install 進行安裝</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-21.png" alt="" /></p>
+<p>安裝會需要一段時間</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-22.png" alt="" /></p>
+<p>SQL Server Failover Cluster 安裝完成，點選 Close 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/17/screenshot-23.png" alt="" /></p>
+<h2>下一步</h2>
+<p>安裝好新的 SQL Server Failover Cluster 後</p>
+<p>接下來要加入新的 SQL Server Failover Cluster 節點</p>

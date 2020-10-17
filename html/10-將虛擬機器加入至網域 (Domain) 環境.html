@@ -1,0 +1,117 @@
+<h1>將機器加入網域環境</h1>
+<p>設定好網域控制站與檔案伺服器後</p>
+<p>要將電腦加入到網域環境中，要加入的電腦名稱如下</p>
+<ul>
+<li>TXSTUDIO056DB</li>
+<li>TXSTUDIO057DB</li>
+<li>TXSTUDIO059WG</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/architechture-add-domain.png" alt="" /></p>
+<p>在加入網域前，要先將網路介面卡的 DNS SERVER 指向網域控制站設定的 DNS 伺服器</p>
+<blockquote>
+<p>在目前情境中 DNS Server 與網域控制站是同一台</p>
+</blockquote>
+<h2>將 TXSTUDIO056DB 加入網域</h2>
+<p>前往 Server Manager</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-01.png" alt="" /></p>
+<p>點選 Ethernet 開啟 Network Connections</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-02.png" alt="" /></p>
+<p>選擇 Ethernet 點選右鍵開啟 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-03.png" alt="" /></p>
+<p>選擇 Internet Protocal Version 4 (TCP/IPv4) 並點選 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-04.png" alt="" /></p>
+<p>在 Perferred DNS Server 輸入 DNS 伺服器位址 192.168.0.50</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-05.png" alt="" /></p>
+<p>回到 Server Manager 點選 TXSTUDIO056DB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-06.png" alt="" /></p>
+<p>點選 Change...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-07.png" alt="" /></p>
+<p>在 Domain 輸入 txstudio.com</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-08.png" alt="" /></p>
+<p>此時會要求輸入有加入網域權限的帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-09.png" alt="" /></p>
+<p>加入 txstudio.com 成功</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-10.png" alt="" /></p>
+<p>會提示需要重新開機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-11.png" alt="" /></p>
+<p>點擊 Close 關閉</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-12.png" alt="" /></p>
+<p>點擊 Restart Now</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-13.png" alt="" /></p>
+<p>重新開啟 TXSTUDIO056DB 電腦</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-14.png" alt="" /></p>
+<h2>將 TXSTUDIO057DB 加入網域</h2>
+<p>前往 Server Manager 點選 Ethernet 開啟 Network Connections</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-15.png" alt="" /></p>
+<p>在 Ethernet 點選右鍵開啟 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-16.png" alt="" /></p>
+<p>選擇 Internet Protocal Version 4 (TCP/IPv4) 並點選 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-17.png" alt="" /></p>
+<p>在 Perferred DNS Server 輸入 DNS 伺服器位址 192.168.0.50</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-18.png" alt="" /></p>
+<p>點擊 Close 關閉視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-19.png" alt="" /></p>
+<p>回到 Server Manager 點選 TXSTUDIO057DB 開啟 System Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-20.png" alt="" /></p>
+<p>在 Computer Name 點選 Change...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-21.png" alt="" /></p>
+<p>在 Domain 輸入 txstudio.com</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-22.png" alt="" /></p>
+<p>此時會要求輸入有加入網域權限的帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-23.png" alt="" /></p>
+<p>加入 txstudio.com 成功</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-24.png" alt="" /></p>
+<p>會提示需要重新開機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-25.png" alt="" /></p>
+<p>點擊 Close 關閉</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-26.png" alt="" /></p>
+<p>點擊 Restart Now</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-27.png" alt="" /></p>
+<p>重新開啟 TXSTUDIO057DB 電腦</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-28.png" alt="" /></p>
+<h2>將 TXSTUDIO059WG 加入網域</h2>
+<p>因為 Windows 10 作業系統沒有 Server Manager</p>
+<p>在檔案總管點選右鍵開啟內容</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-29.png" alt="" /></p>
+<p>連線的電腦名稱 TXSTUDIO059WG</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-30.png" alt="" /></p>
+<p>點選右下角的網路圖示</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-31.png" alt="" /></p>
+<p>點擊「開啟網路和網際網路設定」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-32.png" alt="" /></p>
+<p>點擊「變更介面卡選項」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-33.png" alt="" /></p>
+<p>在「乙太網路」使用右鍵點選「內容」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-34.png" alt="" /></p>
+<p>選擇「網際網路通訊協定第4版(TCP/IPv4)」並點擊「內容」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-35.png" alt="" /></p>
+<p>慣用 DNS 伺服器輸入 192.168.0.50</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-36.png" alt="" /></p>
+<p>回到「系統」視窗點選「變更設定」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-37.png" alt="" /></p>
+<p>在網域輸入 txstudio.com</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-38.png" alt="" /></p>
+<p>此時會要求輸入有加入網域權限的帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-39.png" alt="" /></p>
+<p>加入 txstudio.com 成功</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-40.png" alt="" /></p>
+<p>會提示需要重新開機</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-41.png" alt="" /></p>
+<p>點擊 Close 關閉</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-42.png" alt="" /></p>
+<p>點擊「立刻重新開機」</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-43.png" alt="" /></p>
+<p>重新開啟 TXSTUDIO059WG 電腦</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-44.png" alt="" /></p>
+<h2>在網域控制站確認加入網域的電腦清單</h2>
+<p>進入網域控制站電腦 TXSTUDIO050DC</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-45.png" alt="" /></p>
+<p>點選 Tools 開啟 Active Directory Users and Computers</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-46.png" alt="" /></p>
+<p>點擊 txstudio.com 展開網域</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-47.png" alt="" /></p>
+<p>開啟 Computers 可以看到三台電腦都有加入至網域</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/10/screenshot-48.png" alt="" /></p>
+<h2>下一步</h2>
+<p>加入網域完成後</p>
+<p>要來建立提供給 SQL Server Failover Cluster 使用<strong>服務</strong>與<strong>最高管理員</strong>的 Windows 登入帳號</p>

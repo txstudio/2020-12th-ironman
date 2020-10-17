@@ -1,0 +1,55 @@
+<h1>進行獨立 SQL Server 執行個體安裝</h1>
+<p>SQL Server Always On 與 SQL Server Failover Cluster 不同</p>
+<p>是以資料庫進行同步，故安裝要做獨立 SQL Server 執行個體的安裝</p>
+<p>服務帳戶與資料庫最高管理員與 SQL Server Failover Cluster 設定相同</p>
+<pre><code>txstudio\sqlsvc		SQL Server Engine Service 與 SQL Agent 服務帳號
+txstudio\sqladmin	最高管理員帳號
+</code></pre>
+<p>因為 MSSQLSERVER 執行個體名稱已經存在，安裝時要額外指定執行個體名稱避免衝突</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/architechture-install-standalone-sql-server.gif" alt="" /></p>
+<h2>進行獨立 SQL Server 執行個體安裝</h2>
+<p>前往 TXSTUDIO058DB 伺服器</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-01.png" alt="" /></p>
+<p>進入 SQL Server 資料庫安裝磁碟槽</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-02.png" alt="" /></p>
+<p>在 Setup 點選右鍵選擇 Open 開啟安裝精靈</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-03.png" alt="" /></p>
+<p>點選 Installation</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-04.png" alt="" /></p>
+<p>點選 New SQL Server stand-alone installation or add features to an existing installation</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-05.png" alt="" /></p>
+<p>選擇 Developer 版本</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-06.png" alt="" /></p>
+<p>勾選 I accept the license terms</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-07.png" alt="" /></p>
+<p>驗證完成後點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-08.png" alt="" /></p>
+<p>先忽略安裝 Microsoft Update</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-09.png" alt="" /></p>
+<p>此時會有 Windows Firewall 警告，請先忽略</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-10.png" alt="" /></p>
+<p>在 Feature Selection 選擇 Database Engine Services 與 SQL Server Replication 功能</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-11.png" alt="" /></p>
+<p>因為預設 Instance 名稱 MSSQLSERVER 已在 Failover Cluster 指定，故變更 Named instance 為 SQLSERVERBK</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-12.png" alt="" /></p>
+<p>此時要輸入 SQL Server Agent 與 SQL Server Database Engine 服務的 Windows 帳號與密碼 txstudio\sqlsvc</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-13.png" alt="" /></p>
+<p>在 Server Configuration 選擇 Mixed Mode 並輸入 SA 帳號的登入密碼</p>
+<p>並點選 Add 加入 txstudio\sqladmin 作為資料庫服務的最高管理者 Windows 帳號</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-14.png" alt="" /></p>
+<p>會開始進行驗證作業</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-15.png" alt="" /></p>
+<p>點選 Install 開始安裝</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-16.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-17.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-18.png" alt="" /></p>
+<p>安裝完成後點選 Close 關閉</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-19.png" alt="" /></p>
+<h2>驗證 SQL Server 獨立安裝結果</h2>
+<p>輸入 service.msc 開啟服務視窗</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-20.png" alt="" /></p>
+<p>可以看到 SQL Server 服務有括號標註 instance 名稱 SQLSERVERBK</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/23/screenshot-21.png" alt="" /></p>
+<h2>下一步</h2>
+<p>SQL Server 資料庫安裝完成後，接下來要啟用 SQL Server 服務的 Always On Availability Group 功能</p>
+<p>才可以進行 SQL Server Always On 設定</p>

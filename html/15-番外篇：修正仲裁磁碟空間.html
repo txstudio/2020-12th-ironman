@@ -1,0 +1,68 @@
+<h1>番外篇：修正 Windows Failover Cluster 仲裁磁碟</h1>
+<p>因建立 Windows Failover Cluster 使用系統自動設定</p>
+<p>發現做見證的磁碟槽並不是先前規劃的 500MB 磁碟槽而是使用到 40G 空間</p>
+<blockquote>
+<p>500MB 用來當 SQL Server 空間是絕對不夠的 ...</p>
+</blockquote>
+<h2>為何要有仲裁見證磁碟</h2>
+<p>目前是使用兩台電腦做 Windows Server Cluster</p>
+<p>透過仲裁磁碟加兩台電腦可以讓節點變奇數</p>
+<p>讓投票結果永遠會有比較高的一方</p>
+<p>當節點二停止服務時，節點一加上驗證磁碟的總數會高於節點二：由節點一提供服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/quorum-node-1.gif" alt="" /></p>
+<p>當節點一停止服務時，節點二加上驗證磁碟的總數會高於節點一：由節點二提供服務</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/quorum-node-2.gif" alt="" /></p>
+<h2>確認 Quroum 使用的磁碟槽</h2>
+<p>在 Failover Cluster Manager 的 Storage &gt; Disks 在 Assigned To 可以看到</p>
+<p>Cluster Disk 2 被設定為 Quroum 且空間是 40 GB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-01.png" alt="" /></p>
+<p>可使用的磁碟變成 F 槽，只有 500 MB</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-02.png" alt="" /></p>
+<p>預設的設定結果是錯誤的</p>
+<p>應該是 500 MB 的磁碟槽做 Quroum，40 GB 做檔案磁碟</p>
+<h2>修改預設的仲裁磁碟 Quroum</h2>
+<p>先在 Quorum (F) 點選右鍵 Change Drive Letter</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-03.png" alt="" /></p>
+<p>變更為 Q 磁碟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-04.png" alt="" /></p>
+<p>點選 OK 變更完成</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-05.png" alt="" /></p>
+<p>接下來變更 File (E) 點選右鍵 Change Drive Letter</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-06.png" alt="" /></p>
+<p>設定為 F 磁碟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-07.png" alt="" /></p>
+<p>點選 Failover Cluster Manager 的主目錄</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-08.png" alt="" /></p>
+<p>右側 More Actions</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-09.png" alt="" /></p>
+<p>點選 Configure Cluster Quorum Settings...</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-10.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-11.png" alt="" /></p>
+<p>選擇 Select the quorum witness</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-12.png" alt="" /></p>
+<p>選擇 Configure a disk witness</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-13.png" alt="" /></p>
+<p>可以看到顯示兩個 Cluster Disk</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-14.png" alt="" /></p>
+<p>勾選 500 MB 的 Q 磁碟</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-15.png" alt="" /></p>
+<p>點選 Next</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-16.png" alt="" /></p>
+<p>點擊 Finish 完成設定</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-17.png" alt="" /></p>
+<h2>修改叢集硬碟的名稱</h2>
+<p>進入 Failover Cluster Manager 點選 Storages &gt; Disks</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-18.png" alt="" /></p>
+<p>在 Cluster Disk 1 點選右鍵開啟 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-19.png" alt="" /></p>
+<p>變更名稱為 QuorumDisk</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-20.png" alt="" /></p>
+<p>在 Cluster Disk 2 點選右鍵開啟 Properties</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-21.png" alt="" /></p>
+<p>變更名稱為 FileDisk</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-22.png" alt="" /></p>
+<p>可以看到 QuorumDisk 被設定為 Disk Witness in Quorum</p>
+<p><img src="https://raw.githubusercontent.com/txstudio/2020-12th-ironman/master/images/15/screenshot-23.png" alt="" /></p>
+<h2>下一步</h2>
+<p>修正好仲裁見證磁碟位置後，就來驗證 Windows Failover Cluster</p>
