@@ -1,3 +1,35 @@
 <h1>2020 第12屆 iT邦幫忙鐵人賽 - SQL Server Failover Cluster 與 Always On 環境架設</h1>
 <p>所有草稿文件與素材將會放在此 Repository</p>
 <p>https://ithelp.ithome.com.tw/users/20119758/ironman/2957</p>
+<ul>
+	<li><a target="_blank" href="01-challenge-introduction-and-scope.html">範圍與介紹</a></li>
+	<li><a target="_blank" href="02-active-directory-domain-service-introduction.html">Active Directory Domain Service 簡介</a></li>
+	<li><a target="_blank" href="03-iscsi-server-introduction.html">iSCSI Server 簡介</a></li>
+	<li><a target="_blank" href="04-sql-server-failover-cluster-introduction.html">SQL Server Failover Cluster 簡介</a></li>
+	<li><a target="_blank" href="05-vm-hostname-architecture.html">虛擬機器-電腦名稱-存取帳戶規劃</a></li>
+	<li><a target="_blank" href="06-install-domain-service-role.html">安裝網域服務角色</a></li>
+	<li><a target="_blank" href="07-promote-to-domain-controller.html">升級為網域控制站 (Active Directory Domain Controller)</a></li>
+	<li><a target="_blank" href="08-install-file-server-role.html">安裝檔案伺服器角色</a></li>
+	<li><a target="_blank" href="09-configuration-iscsi-target.html">設定 (iSCSI Target)</a></li>
+	<li><a target="_blank" href="10-add-to-domain-service.html">將虛擬機器加入至網域 (Domain) 環境</a></li>
+	<li><a target="_blank" href="11-create-sql-server-service-and-management-account.html">建立提供給 SQL Server 使用的服務與管理帳號</a></li>
+	<li><a target="_blank" href="12-connect-to-iscsi-target-volume.html">設定 Windows Server 連線至 iSCSI Target 提供網路磁碟</a></li>
+	<li><a target="_blank" href="13-install-windows-server-failover-clustering-feature.html">安裝 Windows Server Failover Cluster 功能</a></li>
+	<li><a target="_blank" href="14-setup-windows-server-failover-clustering.html">建立 Windows Server Failover Cluster 環境</a></li>
+	<li><a target="_blank" href="15-change-quorum-volume.html">番外篇：修正仲裁磁碟空間</a></li>
+	<li><a target="_blank" href="16-windows-server-failover-clustering-verified.html">驗證-確認 Windows Server Failover Cluster</a></li>
+	<li><a target="_blank" href="17-install-new-sql-server-failover-cluster.html">安裝新的 SQL Server Failover Cluster 環境</a></li>
+	<li><a target="_blank" href="18-add-new-sql-server-failover-cluster-node-to-exist-failover-cluster.html">將新的 SQL Server Failover Cluster 節點加入至既有 SQL Server Failover Cluster</a></li>
+	<li><a target="_blank" href="19">驗證 SQL Server Failover Cluster</a></li>
+	<li><a target="_blank" href="20">還原 AdventureWorks2017 範例資料庫 SQL Server Failover Cluster</a></li>
+	<li><a target="_blank" href="21">將第三台 Windows Server 加入至網域 (Domain)</a></li>
+	<li><a target="_blank" href="22">加入既有的 Windows Server Failover Cluster</a></li>
+	<li><a target="_blank" href="23">安裝獨立的 SQL Server 執行個體 (ID=SQLSERVERBK) 因為 (ID=MSSQLSERVER) 已存在</a></li>
+	<li><a target="_blank" href="24">啟用 Always On Availability Group 功能 (Failover Cluster & SQLSERVERBK)</a></li>
+	<li><a target="_blank" href="25">開啟所有 Windows Server 的 5022 連接埠 (因為很容易忘記所以額外抽出來)</a></li>
+	<li><a target="_blank" href="26">設定高可用性群組前的準備：進行資料庫完整備份</a></li>
+	<li><a target="_blank" href="27">進行高可用性群組設定-可用性副本的路徑不存在-建立F磁碟區</a></li>
+	<li><a target="_blank" href="28">設定 AdventureWorks2017 作為可用性資料庫：使用 UNC 共享</a></li>
+	<li><a target="_blank" href="29">驗證 SQL Server Always On 設定</a></li>
+	<li><a target="_blank" href="30">總結與心得</a></li>
+</ul>
